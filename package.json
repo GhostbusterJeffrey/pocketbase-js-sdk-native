@@ -1,0 +1,47 @@
+{
+  "name": "pocketbase-js-sdk-native",
+  "version": "1.0.0",
+  "description": "Mobile port of the PocketBase JavaScript SDK",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier ./src ./tests --write",
+    "build": "rm -rf dist && rollup -c",
+    "dev": "rollup -c -w",
+    "test": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/react-native-event-source": "^1.1.2",
+    "prettier": "^3.2.4",
+    "rollup": "^3.29.4",
+    "rollup-plugin-ts": "^3.4.5",
+    "typescript": "^5.4.5",
+    "vitest": "^0.34.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ghostbusterjeffrey/pocketbase-js-sdk-native.git"
+  },
+  "keywords": [
+    "pocketbase",
+    "mobile",
+    "native",
+    "js"
+  ],
+  "author": "GhostbusterJeffrey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ghostbusterjeffrey/pocketbase-js-sdk-native/issues"
+  },
+  "homepage": "https://github.com/ghostbusterjeffrey/pocketbase-js-sdk-native#readme",
+  "exports": {
+    ".": "./dist/pocketbase.es.mjs",
+    "./cjs": "./dist/pocketbase.cjs.js",
+    "./umd": "./dist/pocketbase.umd.js"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.23.1",
+    "react-native-event-source": "^1.1.0"
+  }
+}
