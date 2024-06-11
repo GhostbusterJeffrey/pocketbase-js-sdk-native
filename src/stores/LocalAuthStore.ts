@@ -7,7 +7,7 @@ import localStorage from "../../../react-native-sync-localstorage-master/localSt
  * to runtime/memory if local storage is undefined (eg. in node env).
  */
 export class LocalAuthStore extends BaseAuthStore {
-    private storageFallback: { [key: string]: any } = {};
+    //private storageFallback: { [key: string]: any } = {};
     private storageKey: string;
 
     constructor(storageKey = "pocketbase_auth") {
@@ -66,18 +66,18 @@ export class LocalAuthStore extends BaseAuthStore {
      * (or runtime/memory if local storage is undefined).
      */
     private _storageGet(key: string): any {
-        if (typeof window !== "undefined" && window?.localStorage) {
-            const rawValue = window.localStorage.getItem(key) || "";
+        //if (typeof window !== "undefined" && window?.localStorage) {
+            const rawValue = localStorage.getItem(key) || "";
             try {
                 return JSON.parse(rawValue);
             } catch (e) {
                 // not a json
                 return rawValue;
             }
-        }
+        /*}
 
         // fallback
-        return this.storageFallback[key];
+        return this.storageFallback[key];*/
     }
 
     /**
@@ -103,19 +103,20 @@ export class LocalAuthStore extends BaseAuthStore {
      */
     private _storageRemove(key: string) {
         // delete from local storage
-        if (typeof window !== "undefined" && window?.localStorage) {
-            window.localStorage?.removeItem(key);
-        }
+        //if (typeof window !== "undefined" && window?.localStorage) {
+            localStorage.removeItem(key);
+        /*}
 
         // delete from fallback
-        delete this.storageFallback[key];
+        delete this.storageFallback[key];*/
     }
 
     /**
      * Updates the current store state on localStorage change.
      */
     private _bindStorageEvent() {
-        if (
+        return;
+        /*if (
             typeof window === "undefined" ||
             !window?.localStorage ||
             !window.addEventListener
@@ -131,6 +132,6 @@ export class LocalAuthStore extends BaseAuthStore {
             const data = this._storageGet(this.storageKey) || {};
 
             super.save(data.token || "", data.model || null);
-        });
+        });*/
     }
 }

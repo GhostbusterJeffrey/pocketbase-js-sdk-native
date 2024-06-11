@@ -16,6 +16,8 @@ import {
     FileOptions,
     normalizeUnknownQueryParams,
 } from "@/services/utils/options";
+// @ts-ignore
+import localStorage from "../../react-native-sync-localstorage-master/localStorage";
 
 export interface BeforeSendResult {
     [key: string]: any; // for backward compatibility
@@ -135,6 +137,8 @@ export default class Client {
     private enableAutoCancellation: boolean = true;
 
     constructor(baseUrl = "/", authStore?: BaseAuthStore | null, lang = "en-US") {
+        localStorage.getAllFromLocalStorage();
+
         this.baseUrl = baseUrl;
         this.lang = lang;
         this.authStore = authStore || new LocalAuthStore();
