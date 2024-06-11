@@ -1,6 +1,6 @@
 {
   "name": "pocketbase-js-sdk-native",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mobile port of the PocketBase JavaScript SDK",
   "main": "./dist/pocketbase.es.mjs",
   "scripts": {
