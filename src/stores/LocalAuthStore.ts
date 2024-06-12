@@ -1,6 +1,6 @@
 import { BaseAuthStore, AuthModel } from "@/stores/BaseAuthStore";
 // @ts-ignore
-import localStorage from "../../react-native-sync-localstorage/localStorage";
+import localStorage from "../../localStorage";
 /**
  * The default token store for browsers with auto fallback
  * to runtime/memory if local storage is undefined (eg. in node env).

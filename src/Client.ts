@@ -17,7 +17,7 @@ import {
     normalizeUnknownQueryParams,
 } from "@/services/utils/options";
 // @ts-ignore
-import localStorage from "../react-native-sync-localstorage/localStorage"
+import localStorage from "../localStorage"
 export interface BeforeSendResult {
     [key: string]: any; // for backward compatibility
     url?: string;
